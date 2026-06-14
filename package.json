@@ -1,0 +1,37 @@
+{
+	"name": "app",
+	"version": "0.0.0",
+	"scripts": {
+		"start": "ng serve",
+		"build": "ng build --configuration=production",
+		"serve:ssr:app": "node dist/app/server/server.mjs"
+	},
+	"dependencies": {
+		"@angular/common": "22.0.1",
+		"@angular/compiler": "22.0.1",
+		"@angular/core": "22.0.1",
+		"@angular/forms": "22.0.1",
+		"@angular/platform-browser": "22.0.1",
+		"@angular/platform-server": "22.0.1",
+		"@angular/router": "22.0.1",
+		"@angular/ssr": "22.0.1",
+		"@wawjs/ngx-core": "21.3.2",
+		"@wawjs/ngx-ui": "21.3.2",
+		"express": "5.1.0",
+		"rxjs": "7.8.0",
+		"tslib": "2.3.0"
+	},
+	"devDependencies": {
+		"@angular/build": "22.0.1",
+		"@angular/cli": "22.0.1",
+		"@angular/compiler-cli": "22.0.1",
+		"@tailwindcss/postcss": "4.1.12",
+		"@types/express": "5.0.1",
+		"@types/node": "25.9.3",
+		"postcss": "8.5.3",
+		"prettier": "3.8.1",
+		"tailwindcss": "4.1.12",
+		"typescript": "6.0.3"
+	},
+	"overrides": {}
+}
