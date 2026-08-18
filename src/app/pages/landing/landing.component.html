@@ -1,0 +1,112 @@
+<article class="landing">
+	<section class="landing__designs">
+		<div class="landing__designs-intro">
+			<h2>Design Directions</h2>
+			<p>Open a visual demo or copy an AI implementation prompt.</p>
+			<button
+				class="landing__selector-button"
+				type="button"
+				(click)="copySelectorBrief()"
+				[attr.aria-label]="'Copy AI selector brief URL'"
+			>
+				{{ isCopied('index') ? 'Copied' : 'Copy AI Selector Brief' }}
+			</button>
+		</div>
+
+		<div class="landing__theme-section">
+			<div class="landing__theme-heading">
+				<h3>Light Theme Designs</h3>
+				<p>Bright, calm, and editorial directions for daytime hospitality, hotels, events, and family venues.</p>
+			</div>
+
+			<div class="landing__grid">
+				@for (design of lightDesigns; track design.path) {
+					<div class="landing__card">
+						<div class="landing__card-content">
+							<h3>
+								<span class="landing__card-icon" aria-hidden="true">
+									<span class="material-symbols-outlined">{{ design.icon }}</span>
+								</span>
+								<span>{{ design.label }}</span>
+							</h3>
+							<p>{{ design.description }}</p>
+							<p class="landing__card-fit">Best for {{ design.bestFor }}.</p>
+						</div>
+
+						<div class="landing__card-actions">
+							<a class="landing__button landing__button--primary" [routerLink]="design.path">
+								View Design
+							</a>
+							<button
+								class="landing__button landing__button--cart"
+								type="button"
+								(click)="addToCart(design.slug)"
+								[attr.aria-label]="'Add ' + design.label + ' to AI prompt cart'"
+							>
+								<span class="material-symbols-outlined" aria-hidden="true">
+									{{ isInCart(design.slug) ? 'check' : 'add_shopping_cart' }}
+								</span>
+								{{ isInCart(design.slug) ? 'Added' : 'Add' }}
+							</button>
+							<button
+								class="landing__button landing__button--secondary"
+								(click)="copyToClipboard(design.slug)"
+								[attr.aria-label]="'Copy AI implementation prompt for ' + design.label"
+							>
+								{{ isCopied(design.slug) ? 'Copied' : 'Copy AI Brief' }}
+							</button>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+
+		<div class="landing__theme-section">
+			<div class="landing__theme-heading">
+				<h3>Dark Theme Designs</h3>
+				<p>Moody, high-contrast directions for nightlife, premium dining, lounges, bars, and evening venues.</p>
+			</div>
+
+			<div class="landing__grid">
+				@for (design of darkDesigns; track design.path) {
+					<div class="landing__card">
+						<div class="landing__card-content">
+							<h3>
+								<span class="landing__card-icon" aria-hidden="true">
+									<span class="material-symbols-outlined">{{ design.icon }}</span>
+								</span>
+								<span>{{ design.label }}</span>
+							</h3>
+							<p>{{ design.description }}</p>
+							<p class="landing__card-fit">Best for {{ design.bestFor }}.</p>
+						</div>
+
+						<div class="landing__card-actions">
+							<a class="landing__button landing__button--primary" [routerLink]="design.path">
+								View Design
+							</a>
+							<button
+								class="landing__button landing__button--cart"
+								type="button"
+								(click)="addToCart(design.slug)"
+								[attr.aria-label]="'Add ' + design.label + ' to AI prompt cart'"
+							>
+								<span class="material-symbols-outlined" aria-hidden="true">
+									{{ isInCart(design.slug) ? 'check' : 'add_shopping_cart' }}
+								</span>
+								{{ isInCart(design.slug) ? 'Added' : 'Add' }}
+							</button>
+							<button
+								class="landing__button landing__button--secondary"
+								(click)="copyToClipboard(design.slug)"
+								[attr.aria-label]="'Copy AI implementation prompt for ' + design.label"
+							>
+								{{ isCopied(design.slug) ? 'Copied' : 'Copy AI Brief' }}
+							</button>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+</article>
